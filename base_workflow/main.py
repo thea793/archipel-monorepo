@@ -3,19 +3,17 @@ from langchain_core.messages import ToolMessage
 from langchain_core.runnables import RunnableConfig
 from base_workflow.workflow import workflow_graph
 
+config: RunnableConfig = {'configurable': {'thread_id': '1'}, 'recursion_limit': 150}
+
+def run_graph(input: Union[dict[str, Any], Any]):
+	events = workflow_graph.stream(input, config, stream_mode='values')
+	for event in events:
+		if 'messages' in event:
+			event['messages'][-1].pretty_print()
+			print('----')
+
 def main():
 	user_input = 'Order a pizza.'
-
-	config: RunnableConfig = {'configurable': {'thread_id': '1'}, 'recursion_limit': 150}
-
-
-	def run_graph(input: Union[dict[str, Any], Any]):
-		events = workflow_graph.stream(input, config, stream_mode='values')
-		for event in events:
-			if 'messages' in event:
-				event['messages'][-1].pretty_print()
-				print('----')
-
 
 	run_graph({'messages': [('user', user_input)]})
 
