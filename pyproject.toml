@@ -2,7 +2,7 @@
 name = "base-workflow"
 version = "0.1.0"
 description = ""
-authors = ["Lukas Beckenbauer <lukas.beckenbauer[at]tum.de>", "Mel Grosser <grosser.mel[at]live.de>"]
+authors = ["Tai Zhang <ge23wut[at]mytum.de>","Lukas Beckenbauer <lukas.beckenbauer[at]tum.de>", "Mel Grosser <grosser.mel[at]live.de>"]
 readme = "README.md"
 
 [tool.poetry.scripts]
@@ -11,13 +11,18 @@ main = "base_workflow.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-langgraph = "^0.2.48"
-langsmith = "^0.1.143"
-langchain-core = "^0.3.18"
-langchain = "^0.3.7"
-langchain-openai = "^0.2.8"
+langgraph = "^0.2.59"
+langsmith = "^0.1.147"
+langchain-core = "^0.3.24"
+langchain = "^0.3.11"
+langchain-openai = "^0.2.12"
 langchain-experimental = "^0.3.3"
-langchain-community = "^0.3.7"
+langchain-community = "^0.3.11"
+langchain-text-splitters="0.3.2"
+langgraph-checkpoint="2.0.9"
+langgraph-sdk="0.1.44"
+groq = "^0.12.0"
+tk = "^0.1.0"
 
 [tool.poetry.plugins.dotenv]
 ignore = "false"
