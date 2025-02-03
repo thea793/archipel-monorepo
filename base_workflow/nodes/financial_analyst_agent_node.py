@@ -15,7 +15,7 @@ def financial_analyst_agent_node(state: MessagesState) -> Command[Literal['super
 	return Command(
 		update={
 			'messages': [
-				HumanMessage(content=result.content, name='search')
+				HumanMessage(content=result["messages"][-1].content, name='search')
 			]
 		},
 		# We want our workers to ALWAYS "report back" to the supervisor when done

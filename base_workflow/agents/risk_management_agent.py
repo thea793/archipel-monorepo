@@ -5,12 +5,8 @@ from base_workflow.tools import (
 	ask_user,
 	execute_python,
 	get_available_cities,
-	get_restaurants_and_menu_in_city,
-	order_pizza,
     tavily_search
 )
-from base_workflow.utils import create_agent
-
 """
 Risk Manager Agent
 

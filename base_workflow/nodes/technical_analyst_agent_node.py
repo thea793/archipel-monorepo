@@ -1,7 +1,6 @@
-from turtle import update
 from base_workflow.agents import technical_analyst_agent
 from langchain_core.messages import HumanMessage
-from langgraph.types import Send, Command
+from langgraph.types import Command
 from langgraph.graph import MessagesState
 from typing import Literal
 
@@ -12,7 +11,7 @@ def technical_analyst_agent_node(state: MessagesState) -> Command[Literal['super
 	return Command(
 		update={
 			'messages': [
-				HumanMessage(content=result.content, name='search')
+				HumanMessage(content=result["messages"][-1].content, name='search')
 			]
 		},
 		# We want our workers to ALWAYS "report back" to the supervisor when done
