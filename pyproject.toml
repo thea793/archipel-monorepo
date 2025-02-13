@@ -23,6 +23,11 @@ langgraph-checkpoint="2.0.9"
 langgraph-sdk="0.1.44"
 groq = "^0.12.0"
 tk = "^0.1.0"
+beautifulsoup4 = "^4.13.3"
+chromadb = "^0.6.3"
+pypdf = "^5.3.0"
+streamlit = "^1.42.0"
+sympy = "^1.13.3"
 
 [tool.poetry.plugins.dotenv]
 ignore = "false"

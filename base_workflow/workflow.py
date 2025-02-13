@@ -6,7 +6,6 @@ from base_workflow.nodes import data_agent_node, writing_agent_node
 
 
 workflow = StateGraph(MessagesState)
-
 workflow.add_node("data_agent", data_agent_node)
 workflow.add_node("writing_agent", writing_agent_node)
 workflow.add_edge(START, "data_agent")
