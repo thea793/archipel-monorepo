@@ -22,12 +22,12 @@ file_path = os.path.join(
 
 loader = PyPDFLoader(file_path)
 pages = loader.load_and_split()
-company_data_vectorstore = Chroma.from_documents(
+data_vectorstore = Chroma.from_documents(
 	documents=pages,
 	collection_name='rag-chroma',
 	embedding=OpenAIEmbeddings(),
 )
-retriever = company_data_vectorstore.as_retriever()
+retriever = data_vectorstore.as_retriever()
 
 retriever_tool = create_retriever_tool(
     retriever,
