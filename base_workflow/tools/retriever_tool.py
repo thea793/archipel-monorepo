@@ -34,3 +34,11 @@ retriever_tool = create_retriever_tool(
     "search_agents_answer",
     "Searches and returns context from LLM Powered Autonomous Agents. Answering questions about the agents.",
 )
+
+
+if __name__ == '__main__':
+	query = "What are the benefits of CoolMOS in soft switching?"
+	retrieved_docs = retriever.get_relevant_documents(query)
+
+	for doc in retrieved_docs:
+		print(doc.page_content)
