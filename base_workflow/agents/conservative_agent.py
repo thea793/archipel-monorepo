@@ -1,3 +1,4 @@
+from calendar import c
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
 
@@ -7,14 +8,9 @@ from base_workflow.tools import (
 	get_available_cities,
     tavily_search
 )
-"""
-Risk Manager Agent
 
-This agent is responsible for assessing and managing financial risks by computing key risk metrics such as 
-volatility, maximum drawdown, and other risk indicators. It evaluates stock price fluctuations, 
-identifies potential risks, and provides recommendations to optimize portfolio risk management.
-"""
-risk_management_agent_system_message = """
+
+conservative_agent_system_message = """
 You are the Risk Manager Agent, responsible for computing key financial risk metrics and providing 
 risk management recommendations. Your goal is to help mitigate potential losses while optimizing 
 portfolio performance.
@@ -30,9 +26,9 @@ Ensure that risk assessments are accurate, data-driven, and well-structured. You
 a crucial role in preventing excessive losses and optimizing investment strategies.
 """
 llm = ChatOpenAI(model='gpt-4o-mini')
-risk_management_agent_tools = [tavily_search]
-risk_management_agent = create_react_agent(
+conservative_agent_tools = []
+conservative_agent = create_react_agent(
 	llm,
-	tools=risk_management_agent_tools,
-	state_modifier=risk_management_agent_system_message,
+	tools=conservative_agent_tools,
+	state_modifier=conservative_agent_system_message,
 )

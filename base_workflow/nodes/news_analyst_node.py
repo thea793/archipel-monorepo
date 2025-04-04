@@ -1,13 +1,14 @@
-from base_workflow.agents import sentiment_analyst_agent
+from base_workflow.agents import news_analyst
 from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 from langgraph.graph import MessagesState
 from typing import Literal
 
-
-
-def sentiment_analyst_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
-	result = sentiment_analyst_agent.invoke(state)
+class State(MessagesState):
+    next: str
+    
+def news_analyst_node(state: MessagesState) -> Command[Literal['supervisor']]:
+	result = news_analyst.invoke(state)
 	return Command(
 		update={
 			'messages': [
@@ -16,4 +17,4 @@ def sentiment_analyst_agent_node(state: MessagesState) -> Command[Literal['super
 		},
 		# We want our workers to ALWAYS "report back" to the supervisor when done
 		goto='supervisor'
-	)
+		)

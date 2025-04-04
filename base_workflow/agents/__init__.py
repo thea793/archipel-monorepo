@@ -1,22 +1,26 @@
 # from .reporter import reporter_agent
-from .real_time_data_agent import real_time_data_agent
-from .financial_analyst_agent import financial_analyst_agent
-from .risk_management_agent import risk_management_agent
-from .sentiment_analyst_agent import sentiment_analyst_agent
-from .technical_analyst_agent import technical_analyst_agent
-from .webscraper_agent import web_scraper_agent
-from .doc_writer_agent import doc_writer_agent
-from .note_taking_agent import note_taking_agent
-from .chart_generating_agent import chart_generating_agent
+from .social_media_analyst import social_media_analyst
+from .fundamentals_analyst import fundamentals_analyst
+from .conservative_agent import conservative_agent
+from .neutral_agent import neutral_agent
+from .crypto_manager import crypto_manager
+from .bullish_researcher import bullish_researcher
+from .bearish_researcher import bearish_researcher
+from .aggressive_agent import aggressive_agent
+from .market_analyst import market_analyst
+from .news_analyst import news_analyst 
+from .trader import trader
 
 __all__ = [
-    'real_time_data_agent', 
-    'financial_analyst_agent',
-    'risk_management_agent', 
-    'sentiment_analyst_agent', 
-    'technical_analyst_agent',
-    'web_scraper_agent',
-    'doc_writer_agent',
-    'note_taking_agent',
-    'chart_generating_agent'
+    'social_media_analyst', 
+    'fundamentals_analyst',
+    'conservative_agent', 
+    'neutral_agent', 
+    'crypto_manager',
+    'bullish_researcher',
+    'bearish_researcher',
+    'aggressive_agent',
+    'market_analyst',
+    'news_analyst',
+    'trader'
     ]

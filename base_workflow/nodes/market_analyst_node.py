@@ -1,17 +1,16 @@
 # Helper function to create a node for a given agent
 from turtle import update
-from base_workflow.agents import financial_analyst_agent
 from langchain_core.messages import HumanMessage
+from base_workflow.agents import market_analyst
 from langgraph.types import Send, Command
 from langgraph.graph import MessagesState
 from typing import Literal
 
-
-def financial_analyst_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
-	print(f"DEBUG: Received state -> {state}")
-	result = financial_analyst_agent.invoke(state)
-	# print(f"DEBUG: Result from financial_analyst_agent -> {result.content}")
-
+class State(MessagesState):
+    next: str
+    
+def market_analyst_node(state: MessagesState) -> Command[Literal['supervisor']]:
+	result = market_analyst.invoke(state)
 	return Command(
 		update={
 			'messages': [

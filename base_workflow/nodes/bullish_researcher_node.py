@@ -1,4 +1,4 @@
-from base_workflow.agents import note_taking_agent
+from base_workflow.agents import bullish_researcher
 from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 from langgraph.graph import MessagesState
@@ -7,8 +7,8 @@ from typing import Literal
 class State(MessagesState):
     next: str
 
-def note_taking_node(state: State) -> Command[Literal["supervisor"]]:
-    result = note_taking_agent.invoke(state)
+def bullish_researcher_node(state: MessagesState) -> Command[Literal["supervisor"]]:
+    result = bullish_researcher.invoke(state)
     return Command(
         update={
             "messages": [

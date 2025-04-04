@@ -1,13 +1,16 @@
+# Helper function to create a node for a given agent
 from turtle import update
-from base_workflow.agents import real_time_data_agent
 from langchain_core.messages import HumanMessage
+from base_workflow.agents import fundamentals_analyst
 from langgraph.types import Send, Command
 from langgraph.graph import MessagesState
 from typing import Literal
 
-
-def real_time_data_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
-	result = real_time_data_agent.invoke(state)
+class State(MessagesState):
+    next: str
+    
+def fundamentals_analyst_node(state: MessagesState) -> Command[Literal['supervisor']]:
+	result = fundamentals_analyst.invoke(state)
 	return Command(
 		update={
 			'messages': [
@@ -17,3 +20,4 @@ def real_time_data_agent_node(state: MessagesState) -> Command[Literal['supervis
 		# We want our workers to ALWAYS "report back" to the supervisor when done
 		goto='supervisor'
 		)
+

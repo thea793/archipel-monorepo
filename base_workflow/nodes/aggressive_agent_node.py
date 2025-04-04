@@ -1,13 +1,14 @@
-from base_workflow.agents import technical_analyst_agent
+from base_workflow.agents import aggressive_agent
 from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 from langgraph.graph import MessagesState
 from typing import Literal
 
-
-
-def technical_analyst_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
-	result = technical_analyst_agent.invoke(state)
+class State(MessagesState):
+    next: str
+    
+def aggressive_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
+	result = aggressive_agent.invoke(state)
 	return Command(
 		update={
 			'messages': [
@@ -16,4 +17,4 @@ def technical_analyst_agent_node(state: MessagesState) -> Command[Literal['super
 		},
 		# We want our workers to ALWAYS "report back" to the supervisor when done
 		goto='supervisor'
-		)
+	)

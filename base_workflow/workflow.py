@@ -4,8 +4,8 @@ from langgraph.graph import MessagesState, StateGraph, START, END
 from langchain_core.language_models.chat_models import BaseChatModel
 from langgraph.types import Command
 from langchain_openai import ChatOpenAI
-from base_workflow.utils.stock_graph import call_research_team
-from base_workflow.utils.writing_team_graph import call_paper_writing_team
+from base_workflow.utils.analyst_team import call_research_team
+from base_workflow.utils.risk_management_team import call_paper_writing_team
 
 class State(MessagesState):
     next: str

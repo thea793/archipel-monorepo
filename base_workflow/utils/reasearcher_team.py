@@ -7,7 +7,7 @@ from langgraph.types import Command
 from typing_extensions import TypedDict
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
-from base_workflow.nodes import (sentiment_analyst_agent_node, web_scraper_node)
+from base_workflow.nodes import (bullish_researcher_node, bearish_researcher_node,trader_node)
 
 
 def _set_if_undefined(var: str):

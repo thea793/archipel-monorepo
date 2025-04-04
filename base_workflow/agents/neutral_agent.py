@@ -4,15 +4,8 @@ from base_workflow.tools import (
     tavily_search
 )
 
-"""
-Sentiment Analyst Agent
 
-This agent analyzes market sentiment by processing social media trends, news sentiment, and overall 
-market perception. It leverages natural language processing (NLP) techniques to extract insights from 
-financial news, analyst opinions, and investor sentiment, helping to gauge market sentiment shifts 
-and their potential impact on stock performance.
-"""
-sentiment_analyst_agent_system_message = """
+neutral_agent_system_message = """
 You are the Sentiment Analyst Agent, responsible for analyzing sentiment from financial news, social 
 media, and market discussions to assess investor perception and market mood.
 
@@ -27,9 +20,9 @@ Ensure that sentiment analysis is based on reliable data sources, and be mindful
 interpretation. Your insights will contribute to a more comprehensive market analysis.
 """
 llm = ChatOpenAI(model='gpt-4o-mini')
-sentiment_analyst_agent_tools = [tavily_search]
-sentiment_analyst_agent = create_react_agent(
+neutral_agent_tools = []
+neutral_agent = create_react_agent(
 	llm,
-	tools=sentiment_analyst_agent_tools,
-	state_modifier=sentiment_analyst_agent_system_message,
+	tools=neutral_agent_tools,
+	state_modifier=neutral_agent_system_message,
 )

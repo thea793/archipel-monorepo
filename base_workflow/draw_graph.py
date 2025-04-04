@@ -1,6 +1,6 @@
 from base_workflow.workflow import super_graph
-from base_workflow.utils.stock_graph import research_graph
-from base_workflow.utils.writing_team_graph import paper_writing_graph
+from base_workflow.utils.analyst_team import research_graph
+from base_workflow.utils.risk_management_team import paper_writing_graph
 from langchain_core.runnables.graph import MermaidDrawMethod
 
 

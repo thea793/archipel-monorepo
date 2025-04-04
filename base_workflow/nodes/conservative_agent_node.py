@@ -1,13 +1,14 @@
-from base_workflow.agents import risk_management_agent
+from base_workflow.agents import conservative_agent
 from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 from langgraph.graph import MessagesState
 from typing import Literal
 
+class State(MessagesState):
+    next: str
 
-
-def risk_management_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
-	result = risk_management_agent.invoke(state)
+def conservative_agent_node(state: MessagesState) -> Command[Literal['supervisor']]:
+	result = conservative_agent.invoke(state)
 	return Command(
 		update={
 			'messages': [

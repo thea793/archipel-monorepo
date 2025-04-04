@@ -1,24 +1,27 @@
 # from .agent_node import agent_node
-from .benchmark_node import benchmark_node
-from .financial_analyst_agent_node import financial_analyst_agent_node
-from .real_time_data_agent_node import real_time_data_agent_node
-from .risk_management_agent_node import risk_management_agent_node
-from .sentiment_analyst_agent_node import sentiment_analyst_agent_node
-from .technical_analyst_agent_node import technical_analyst_agent_node
-from .web_scraper_node import web_scraper_node
-from .chart_generating_node import chart_generating_node
-from .doc_writing_node import doc_writing_node
-from .note_taking_node import note_taking_node
+from .aggressive_agent_node import aggressive_agent_node
+from .bearish_researcher_node import bearish_researcher_node
+from .bullish_researcher_node import bullish_researcher_node
+from .conservative_agent_node import conservative_agent_node
+from .crypto_manager_node import crypto_manager_node
+from .fundamentals_analyst_node import fundamentals_analyst_node
+from .market_analyst_node import market_analyst_node
+from .neutral_agent_node import neutral_agent_node
+from .news_analyst_node import news_analyst_node
+from .social_media_analyst_node import social_media_analyst_node
+from .trader_node import trader_node
+
+
 
 __all__ = [
-    'benchmark_node',
-    'financial_analyst_agent_node',
-    'real_time_data_agent_node',
-    'risk_management_agent_node',
-    'sentiment_analyst_agent_node',
-    'technical_analyst_agent_node',
-    'web_scraper_node',
-    'chart_generating_node',
-    'doc_writing_node',
-    'note_taking_node'
+    'aggressive_agent_node',
+    'bearish_researcher_node',
+    'bullish_researcher_node',
+    'conservative_agent_node',
+    'crypto_manager_node',
+    'fundamentals_analyst_node',
+    'market_analyst_node',
+    'news_analyst_node',
+    'social_media_analyst_node',
+    'trader_node'
     ]

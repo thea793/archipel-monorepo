@@ -1,4 +1,4 @@
-from base_workflow.agents import web_scraper_agent
+from base_workflow.agents import crypto_manager
 from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 from langgraph.graph import MessagesState
@@ -7,8 +7,8 @@ from typing import Literal
 class State(MessagesState):
     next: str
 
-def web_scraper_node(state: State) -> Command[Literal["supervisor"]]:
-    result = web_scraper_agent.invoke(state)
+def crypto_manager_node(state: MessagesState) -> Command[Literal["supervisor"]]:
+    result = crypto_manager.invoke(state)
     return Command(
         update={
             "messages": [
