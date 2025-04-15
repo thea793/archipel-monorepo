@@ -123,10 +123,10 @@ class DialogueAgentWithTools(DialogueAgent):
         return message.content
         
 names = {
-    "AI accelerationist": ["arxiv", "ddg-search", "wikipedia"],
-    "AI alarmist": ["arxiv", "ddg-search", "wikipedia"],
+    "Bearish_researcher": ["arxiv", "ddg-search", "wikipedia"],
+    "Bullish_researcher": ["arxiv", "ddg-search", "wikipedia"],
 }
-topic = "The current impact of automation and artificial intelligence on employment"
+topic = "The current tendency of Apple Inc.'s stock price"
 word_limit = 50  # word limit for task brainstorming
 
 conversation_description = f"""Here is the topic of conversation: {topic}
@@ -160,22 +160,22 @@ for name, description in agent_descriptions.items():
 def generate_system_message(name, description, tools):
     return f"""{conversation_description}
     
-Your name is {name}.
+            Your name is {name}.
 
-Your description is as follows: {description}
+            Your description is as follows: {description}
 
-Your goal is to persuade your conversation partner of your point of view.
+            Your goal is to persuade your conversation partner of your point of view.
 
-DO look up information with your tool to refute your partner's claims.
-DO cite your sources.
+            DO look up information with your tool to refute your partner's claims.
+            DO cite your sources.
 
-DO NOT fabricate fake citations.
-DO NOT cite any source that you did not look up.
+            DO NOT fabricate fake citations.
+            DO NOT cite any source that you did not look up.
 
-Do not add anything else.
+            Do not add anything else.
 
-Stop speaking the moment you finish speaking from your perspective.
-"""
+            Stop speaking the moment you finish speaking from your perspective.
+            """
 
 
 agent_system_messages = {
@@ -205,6 +205,7 @@ print(f"Original topic:\n{topic}\n")
 print(f"Detailed topic:\n{specified_topic}\n")
 
 # we set `top_k_results`=2 as part of the `tool_kwargs` to prevent results from overflowing the context limit
+# here the two agents are set.
 agents = [
     DialogueAgentWithTools(
         name=name,
