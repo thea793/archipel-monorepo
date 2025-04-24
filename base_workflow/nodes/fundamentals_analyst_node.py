@@ -9,7 +9,7 @@ from typing import Literal
 class State(MessagesState):
     next: str
     
-def fundamentals_analyst_node(state: MessagesState) -> Command[Literal['supervisor']]:
+def fundamentals_analyst_node(state: MessagesState) -> Command[None]:
 	result = fundamentals_analyst.invoke(state)
 	return Command(
 		update={
@@ -17,7 +17,6 @@ def fundamentals_analyst_node(state: MessagesState) -> Command[Literal['supervis
 				HumanMessage(content=result["messages"][-1].content, name='search')
 			]
 		},
-		# We want our workers to ALWAYS "report back" to the supervisor when done
-		goto='supervisor'
+		# goto='END'
 		)
 

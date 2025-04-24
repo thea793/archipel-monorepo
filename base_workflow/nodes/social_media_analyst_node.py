@@ -8,7 +8,7 @@ from typing import Literal
 class State(MessagesState):
     next: str
 
-def social_media_analyst_node(state: State) -> Command[Literal["supervisor"]]:
+def social_media_analyst_node(state: State) -> Command[Literal["news_analyst"]]:
     result = social_media_analyst.invoke(state)
     return Command(
         update={
@@ -17,5 +17,5 @@ def social_media_analyst_node(state: State) -> Command[Literal["supervisor"]]:
             ]
         },
         # We want our workers to ALWAYS "report back" to the supervisor when done
-        goto="supervisor",
+        goto="news_analyst",
     )
