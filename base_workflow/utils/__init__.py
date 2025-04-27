@@ -1,4 +1,3 @@
-from .analyst_team import call_research_team
-from .risk_management_team import call_paper_writing_team
+from .debate_agent import DialogueAgent, DialogueSimulator, DialogueAgentWithTools
 
-__all__ = ['call_research_team', 'call_paper_writing_team']
+__all__ = ['DialogueAgent', 'DialogueSimulator', 'DialogueAgentWithTools']
