@@ -45,16 +45,19 @@ class DialogueAgent:
         """
         self.message_history.append(f"{name}: {message}")
 
+# Function to alternate between Bullish and Bearish Researchers
+def select_next_speaker(step: int, agents: List[DialogueAgentWithTools]) -> int:
+    return (step) % len(agents)  # Alternating speakers
 
 class DialogueSimulator:
     def __init__(
         self,
         agents: List[DialogueAgent],
-        selection_function: Callable[[int, List[DialogueAgent]], int],
+        # selection_function: Callable[[int, List[DialogueAgent]], int],
     ) -> None:
         self.agents = agents
         self._step = 0
-        self.select_next_speaker = selection_function
+        self.select_next_speaker = select_next_speaker
 
     def reset(self):
         for agent in self.agents:
